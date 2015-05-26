@@ -37,7 +37,7 @@ if __FILE__ == $0
   doc = Nokogiri::XML(content)
   doc.xpath(img_xpath).each do |e|
     # skip avatars
-    if !e['src'].include? "avatars"
+    unless e['src'].include? "avatars"
       save_img(e['src'], download_path)
     end
   end
